@@ -1,125 +1,22 @@
-%%
-%% This is file `sigconf.tex',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% samples.dtx  (with options: `all,proceedings,sigconf')
-%% 
-%% IMPORTANT NOTICE:
-%% 
-%% For the copyright see the source file.
-%% 
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from sigconf.tex.
-%% 
-%% For distribution of the original source see the terms
-%% for copying and modification in the file samples.dtx.
-%% 
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
-%%
-%%
-%% Commands for TeXCount
-%TC:macro \cite [option:text,text]
-%TC:macro \citep [option:text,text]
-%TC:macro \citet [option:text,text]
-%TC:envir table 0 1
-%TC:envir table* 0 1
-%TC:envir tabular [ignore] word
-%TC:envir displaymath 0 word
-%TC:envir math 0 word
-%TC:envir comment 0 0
-%%
-%% The first command in your LaTeX source must be the \documentclass
-%% command.
-%%
-%% For submission and review of your manuscript please change the
-%% command to \documentclass[manuscript, screen, review]{acmart}.
-%%
-%% When submitting camera ready or to TAPS, please change the command
-%% to \documentclass[sigconf]{acmart} or whichever template is required
-%% for your publication.
-%%
-%%
-\documentclass[sigconf]{acmart}
-%%
-%% \BibTeX command to typeset BibTeX logo in the docs
-\AtBeginDocument{%
-  \providecommand\BibTeX{{%
-    Bib\TeX}}}
+% ACM conference typography for a course assignment.
+\documentclass[sigconf,nonacm]{acmart}
 
-%% Rights management information.  This information is sent to you
-%% when you complete the rights form.  These commands have SAMPLE
-%% values in them; it is your responsibility as an author to replace
-%% the commands and values with those provided to you when you
-%% complete the rights form.
-% \setcopyright{acmlicensed}
-% \copyrightyear{2018}
-% \acmYear{2018}
-% \acmDOI{XXXXXXX.XXXXXXX}
-%% These commands are for a PROCEEDINGS abstract or paper.
-% \acmConference[Conference acronym 'XX]{Make sure to enter the correct
-%   conference title from your rights confirmation email}{June 03--05,
-%   2018}{Woodstock, NY}
-%%
-%%  Uncomment \acmBooktitle if the title of the proceedings is different
-%%  from ``Proceedings of ...''!
-%%
-%%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
-%%  June 03--05, 2018, Woodstock, NY}
-% \acmISBN{978-1-4503-XXXX-X/2018/06}
+% Wrap database queries within the ACM column without changing their syntax.
+\usepackage{listings}
+\lstdefinestyle{searchquery}{
+  basicstyle=\small\ttfamily,
+  columns=fullflexible,
+  keepspaces=true,
+  breaklines=true,
+  breakatwhitespace=false,
+  showstringspaces=false,
+  upquote=true
+}
 
-
-%%
-%% Submission ID.
-%% Use this when submitting an article to a sponsored event. You'll
-%% receive a unique submission ID from the organizers
-%% of the event, and this ID should be used as the parameter to this command.
-%%\acmSubmissionID{123-A56-BU3}
-
-%%
-%% For managing citations, it is recommended to use bibliography
-%% files in BibTeX format.
-%%
-%% You can then either use BibTeX with the ACM-Reference-Format style,
-%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
-%% support for advanced citation of software artefact from the
-%% biblatex-software package, also separately available on CTAN.
-%%
-%% Look at the sample-*-biblatex.tex files for templates showcasing
-%% the biblatex styles.
-%%
-%%
-%% The majority of ACM publications use numbered citations and
-%% references.  The command \citestyle{authoryear} switches to the
-%% "author year" style.
-%%
-%% If you are preparing content for an event
-%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
-%% citations and references.
-%% Uncommenting
-%% the next command will enable that style.
-%%\citestyle{acmauthoryear}
-
-
-%%
-%% end of the preamble, start of the body of the document source.
 \begin{document}
 
-%%
-%% The "title" command has an optional parameter,
-%% allowing the author to define a "short title" to be used in page headers.
 \title{Q-Matrix}
 
-%%
-%% The "author" command and its associated commands are used to define
-%% the authors and their affiliations.
-%% Of note is the shared affiliation of the first two authors, and the
-%% "authornote" and "authornotemark" commands
-%% used to denote shared contribution to the research.
 \author{BG Rodrigo L Abellanosa}
 \email{babellanosa3@gatech.edu}
 
@@ -142,17 +39,8 @@
   \country{USA}
 }
 
-%%
-%% By default, the full list of authors will be used in the page
-%% headers. Often, this list is too long, and will overlap
-%% other information printed in the page headers. This command allows
-%% the author to define a more concise list
-%% of authors' names for this purpose.
 \renewcommand{\shortauthors}{Abellanosa et al.}
 
-%%
-%% The abstract is a short summary of the work to be presented in the
-%% article.
 \begin{abstract}
 A Q-matrix is a binary matrix linking assessment items to the latent skills or attributes they are intended to measure. Cognitive diagnostic models use these relationships to interpret responses, so errors in the matrix can produce misleading assessments. Q-matrices have traditionally been constructed through expert judgment, while statistical and machine learning methods provide ways to estimate or revise these relationships. Comparing these methods across domains can help determine which are suitable for particular data and assessment requirements.
 
@@ -160,75 +48,23 @@ This systematic literature review will examine research from the past ten years 
 
 \end{abstract}
 
-%%
-%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
-%% Please copy and paste the code instead of the example below.
-%%
-% \begin{CCSXML}
-% <ccs2012>
-%  <concept>
-%   <concept_id>00000000.0000000.0000000</concept_id>
-%   <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-%   <concept_significance>500</concept_significance>
-%  </concept>
-%  <concept>
-%   <concept_id>00000000.00000000.00000000</concept_id>
-%   <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-%   <concept_significance>300</concept_significance>
-%  </concept>
-%  <concept>
-%   <concept_id>00000000.00000000.00000000</concept_id>
-%   <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-%   <concept_significance>100</concept_significance>
-%  </concept>
-%  <concept>
-%   <concept_id>00000000.00000000.00000000</concept_id>
-%   <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-%   <concept_significance>100</concept_significance>
-%  </concept>
-% </ccs2012>
-% \end{CCSXML}
-
-% \ccsdesc[500]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-% \ccsdesc[300]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-% \ccsdesc{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-% \ccsdesc[100]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-
-%%
-%% Keywords. The author(s) should pick words that accurately describe
-%% the work being presented. Separate the keywords with commas.
 \keywords{Q-Matrix}
-%% A "teaser" image appears between the author and affiliation
-%% information and the body of the document, and typically spans the
-%% page.
-% \begin{teaserfigure}
-%  \includegraphics[width=\textwidth]{sampleteaser}
-%   \caption{Seattle Mariners at Spring Training, 2010.}
-%   \Description{Enjoying the baseball game from the third-base
-%   seats. Ichiro Suzuki preparing to bat.}
-%   \label{fig:teaser}
-% \end{teaserfigure}
 
-% \received{20 February 2007}
-% \received[revised]{12 March 2009}
-% \received[accepted]{5 June 2009}
-
-%%
-%% This command processes the author and affiliation and title
-%% information and builds the first part of the formatted document.
 \maketitle
 
-\textbf{Research Question 1}
+\section{Research Questions}
+
+\subsection{Research Question 1}
 
 Which methods for generating, validating, and refining Q-matrices have been proposed or applied in peer-reviewed studies from 2021 to 2026, and how does the percentage of studies using each method family differ across educational measurement, intelligent tutoring systems and learning analytics, and psychological and clinical assessment?
 
 Overview. Q-Matrix methods have developed in different domains, with little cross-domain research conducted to date. RQ1 will facilitate a more holistic understanding of the Q-Matrix methods.
 
-\begin{enumerate}
-    \item \textbf{Novelty}. Based on an initial research assessment (manual searches of Scopus, Web of Science Core Collection, APA PsycInfo, and ACM Digital Library with an AI review of results, along with an AI-conducted search of openly accessible sources), it appears this question is novel. Existing identified reviews (Qin et al., 2026; Wang et al., 2026; Coates, 2026) either focus exclusively on cognitive diagnostic models or focus on a single domain.
-    \item \textbf{Relevance}. Different domains rarely cite each other. Further, LLM-based work has grown approximately 4-fold from 2024-2026. Each of these facts suggests an opportunity to facilitate cross-domain understanding in a changing field.
-    \item \textbf{Specificity and Measurability}. RQ1 focuses on a specific population of peer-reviewed studies from 2021-2026. Each study will be coded by:
-\end{enumerate}
+\paragraph{Novelty and Differentiation.} Based on an initial research assessment (manual searches of Scopus, Web of Science Core Collection, APA PsycInfo, and ACM Digital Library with an AI review of results, along with an AI-conducted search of openly accessible sources), it appears this question is novel. Existing identified reviews (Qin et al., 2026; Wang et al., 2026; Coates, 2026) either focus exclusively on cognitive diagnostic models or focus on a single domain.
+
+\paragraph{Relevance and Intellectual Merit/Broader Impact.} Different domains rarely cite each other. Further, LLM-based work has grown approximately 4-fold from 2024-2026. Each of these facts suggests an opportunity to facilitate cross-domain understanding in a changing field.
+
+\paragraph{Specificity and Measurability.} RQ1 focuses on a specific population of peer-reviewed studies from 2021-2026. Each study will be coded by:
 
 \begin{itemize}
     \item task (e.g., generation, validation, or refinement)
@@ -238,102 +74,99 @@ Overview. Q-Matrix methods have developed in different domains, with little cros
 \end{itemize}
 Output will include percentage-based conclusions.
 
-\begin{enumerate}
-    \item \textbf{How RQ1 will be answered through literature search}. The relevant population of papers from applicable databases (e.g., Scopus, Web of Science Core Collection, APA PsycInfo, and ACM Digital Library – see Part 2 question 1 for more detail) will be extracted and then categorized by method family, domain, and task (e.g., generate, validate, or refine). Results will include a family-by-domain table with counts and percentages. 
-    \item \textbf{Feasibility}. An AI-facilitated initial scoping search of openly accessible sources and review of sources from manual database searches found 963 records (after de-duplication), in line with the scope suggested in the Group Project Check In 1 assignment description.
-\end{enumerate}
+\paragraph{Answering the Research Question through Literature Search.} The relevant population of papers from applicable databases (e.g., Scopus, Web of Science Core Collection, APA PsycInfo, and ACM Digital Library – see Part 2 question 1 for more detail) will be extracted and then categorized by method family, domain, and task (e.g., generate, validate, or refine). Results will include a family-by-domain table with counts and percentages.
 
-\textbf{Research Question 2}
+\paragraph{Feasibility.} An AI-facilitated initial scoping search of openly accessible sources and review of sources from manual database searches found 963 records (after de-duplication), in line with the scope suggested in the Group Project Check In 1 assignment description.
+
+\subsection{Research Question 2}
 
 What data conditions (sample size, attribute structure, interpretability standards) and evaluation criteria (metrics and benchmarks) are reported for each method family in each domain, and which evaluation criteria are most common across domains?
 
-Overview. RQ2 seeks to answer what evidence studies of Q-Matrices rely on and how success is measured for them both within domains and across them. 
+Overview. RQ2 seeks to answer what evidence studies of Q-Matrices rely on and how success is measured for them both within domains and across them.
 
-\begin{enumerate}
-    \item \textbf{Novelty}. Based on our initial research assessment, it appears the novelty of this question rests in its cross-domain focus. No review was found that compares data conditions and evaluation criteria across domains or asks which criteria domains share the most.
-    \item \textbf{Relevance}. This review will identify where evidence is thinnest and those evaluation criteria that practitioners may find most generally applicable. It will enable practitioners to assess whether a method was applied to data like theirs before trusting the diagnosis the method produces in their testing.
-    \item \textbf{Specificity and Measurability}. Every study will be coded to its data conditions (such as sample size, attribute structure, and interpretability standards). Its evaluation criteria will also be coded (e.g., the metrics and benchmarks applied to the Q-matrix). This will enable (i) the production of a table of data conditions by method family and domain and ii) a catalog of evaluation criteria identified and the domains in which they are used.
-    \item \textbf{How RQ2 will be answered through literature search}. RQ2 will use the same studies as RQ1. The data conditions and evaluation criteria from the studies will be extracted directly from the papers.
-    \item \textbf{Feasibility}. The scope identified by the initial search (963 papers) is feasible for human review for a group of 5 across a semester project. Automated extraction techniques can further facilitate feasibility.
-\end{enumerate}
+\paragraph{Novelty and Differentiation.} Based on our initial research assessment, it appears the novelty of this question rests in its cross-domain focus. No review was found that compares data conditions and evaluation criteria across domains or asks which criteria domains share the most.
 
-\textbf{Research Question 3}
+\paragraph{Relevance and Intellectual Merit/Broader Impact.} This review will identify where evidence is thinnest and those evaluation criteria that practitioners may find most generally applicable. It will enable practitioners to assess whether a method was applied to data like theirs before trusting the diagnosis the method produces in their testing.
+
+\paragraph{Specificity and Measurability.} Every study will be coded to its data conditions (such as sample size, attribute structure, and interpretability standards). Its evaluation criteria will also be coded (e.g., the metrics and benchmarks applied to the Q-matrix). This will enable (i) the production of a table of data conditions by method family and domain and ii) a catalog of evaluation criteria identified and the domains in which they are used.
+
+\paragraph{Answering the Research Question through Literature Search.} RQ2 will use the same studies as RQ1. The data conditions and evaluation criteria from the studies will be extracted directly from the papers.
+
+\paragraph{Feasibility.} The scope identified by the initial search (963 papers) is feasible for human review for a group of 5 across a semester project. Automated extraction techniques can further facilitate feasibility.
+
+\subsection{Research Question 3}
 
 What strengths and limitations do authors report for each method family, what problem is each family designed to solve, and which limitations recur across studies and domains?
 
-\begin{enumerate}
-    \item \textbf{Novelty}. As with RQ1 and RQ2, existing reviews lack a cross-domain focus. Additionally, no identified existing review compares the strengths and weaknesses of the complete set of Q-Matrix methods contemplated by this review.
-    \item \textbf{Relevance}. RQ3 separates limitations specific to individual domains and those that apply more broadly, which will help demonstrate where new methods are needed.
-    \item \textbf{Specificity and Measurability}. Each study will be coded to the stated problem the method is intended to address and any strengths and limitations stated in the study. 
-    \item \textbf{How RQ1 will be answered through literature search}. RQ3 will focus on the same set of studies as RQ1 and RQ2. Strengths and limitations will be extracted from the introduction and discussion sections of each paper. Following extraction, thematic analysis will categorize the identified strengths and weaknesses, which will then be counted by family and domain.
-    \item \textbf{Feasibility}. RQ3 is the most challenging of the three. Automated extraction methods are less feasible than the other RQ’s. However, thematic coding is a common qualitative method, so the main feasibility challenge is the limited time to complete the review. If it becomes apparent that extraction and thematic coding for RQ3 is infeasible within the semester, we will limit RQ3 coding to a stratified sample of studies by method family. 
-\end{enumerate}
+\paragraph{Novelty and Differentiation.} As with RQ1 and RQ2, existing reviews lack a cross-domain focus. Additionally, no identified existing review compares the strengths and weaknesses of the complete set of Q-Matrix methods contemplated by this review.
 
-\textbf{Searches}
+\paragraph{Relevance and Intellectual Merit/Broader Impact.} RQ3 separates limitations specific to individual domains and those that apply more broadly, which will help demonstrate where new methods are needed.
 
-Scopus (Advanced search)
+\paragraph{Specificity and Measurability.} Each study will be coded to the stated problem the method is intended to address and any strengths and limitations stated in the study.
 
-( TITLE-ABS-KEY ( ( "Q-matri*" OR "Q matri*" ) AND ( "cognitive diagnos*" OR "diagnostic classification" OR "diagnostic assessment" OR DINA OR attribute* OR skill* OR "knowledge component*" OR assessment* ) ) OR TITLE-ABS-KEY ( ( "knowledge component*" OR "skill model*" OR "cognitive model discover*" OR "knowledge concept tagging" OR "skill tagging" OR "knowledge tagging" ) AND ( discover* OR refin* OR generat* OR tagging OR "data-driven" OR "learning factors analysis" OR automat* OR extract* ) ) ) AND PUBYEAR > 2020 AND PUBYEAR < 2027
+\paragraph{Answering the Research Question through Literature Search.} RQ3 will focus on the same set of studies as RQ1 and RQ2. Strengths and limitations will be extracted from the introduction and discussion sections of each paper. Following extraction, thematic analysis will categorize the identified strengths and weaknesses, which will then be counted by family and domain.
 
-Web of Science Core Collection (Advanced search, pasted into the Query Preview box)
+\paragraph{Feasibility.} RQ3 is the most challenging of the three. Automated extraction methods are less feasible than the other RQ’s. However, thematic coding is a common qualitative method, so the main feasibility challenge is the limited time to complete the review. If it becomes apparent that extraction and thematic coding for RQ3 is infeasible within the semester, we will limit RQ3 coding to a stratified sample of studies by method family.
 
-TS=((("Q matri*") AND ("cognitive diagnos*" OR "diagnostic classification" OR "diagnostic assessment" OR DINA OR attribute* OR skill* OR "knowledge component*" OR assessment*)) OR (("knowledge component*" OR "skill model*" OR "cognitive model discover*" OR "knowledge concept tagging" OR "skill tagging" OR "knowledge tagging") AND (discover* OR refin* OR generat* OR tagging OR "data driven" OR "learning factors analysis" OR automat* OR extract*)))
+\section{Procedure}
 
-APA PsycInfo (EBSCO advanced search). 
-
-( TI ( "cognitive diagnos*" OR "diagnostic classification model*" ) OR AB ( "cognitive diagnos*" OR "diagnostic classification model*" ) ) AND ( TI ( clinical OR psychiatr* OR psychopatholog* OR "mental health" OR symptom* OR DSM OR personality ) OR AB ( clinical OR psychiatr* OR psychopatholog* OR "mental health" OR symptom* OR DSM OR personality ) )
-
-ACM Digital Library (Advanced search, with the field set to Abstract). 
-
-"Q-matrix" OR "Q matrix"
-
-and a second search:
-
-("knowledge component" OR "knowledge components" OR "skill tagging" OR "knowledge concept tagging") AND (generation OR discovery OR refinement OR tagging OR automated)
-
-IEEE Xplore (Advanced search-Command Search)
-
-(("Q-matrix" OR "Q matrix") AND ("cognitive diagnosis" OR "cognitive diagnostic" OR "diagnostic classification" OR DINA)) OR (("knowledge component" OR "knowledge components" OR "skill tagging" OR "knowledge concept tagging") AND (generation OR discovery OR refinement OR tagging OR automated))
-
-\textbf{References}
-
-Qin, Haijiang, et al. “From Theory to Practice: A Comprehensive Toolkit for Q-Matrix Validation in Cognitive Diagnosis.” Behavior Research Methods, vol. 58, no. 6, May 2026, p. 151. Springer Link, \href{https://doi.org/10.3758/s13428-026-02991-5}{https://doi.org/10.3758/s13428-026-02991-5}.
-
-Coates, Adam. “A Systematic Review of the Implications of Diagnostic Classification Modeling for Cognitive Models of Mathematics.” Review of Educational Research, Sept. 2026, p. 00346543261480692. DOI.org (Crossref), \href{https://doi.org/10.3102/00346543261480692}{https://doi.org/10.3102/00346543261480692}.
-
-Wang, Chun, et al. “Review of Cognitive Diagnostic Models ( CDMs ): Recent Methodological Advancements for Addressing Practical Challenges.” British Journal of Mathematical and Statistical Psychology, July 2026, p. bmsp.70066. DOI.org (Crossref), https://doi.org/10.1111/bmsp.70066.
-
- 
-
-\subsection{\textbf{Procedure}}
-
-\subsubsection{\textbf{Databases}}
+\subsection{Sets of Databases and Search Strategy}
 
 To capture the interdisciplinary nature of Q-matrix research, we will be looking at papers from the following databases: Scopus, Web of Science Core Collection, APA PsycInfo, ERIC, PubMed, ACM Digital Library, and IEEE Xplore. While Scopus and Web of Science provide literature from many different disciplines, PubMed and PsycInfo focus on the medical fields, ERIC on educational research, and ACM as well as IEEE on its applications in technology and computer science. This combination supports the cross-domain focus of our research questions. Searches will primarily focus on peer-reviewed studies published over the span of 2021-2026.
 
-\subsubsection{\textbf{Search String}}
+\subsubsection{Scopus (Advanced search)}
 
-\begin{table}
-\centering
+\begin{lstlisting}[style=searchquery]
+( TITLE-ABS-KEY ( ( "Q-matri*" OR "Q matri*" ) AND ( "cognitive diagnos*" OR "diagnostic classification" OR "diagnostic assessment" OR DINA OR attribute* OR skill* OR "knowledge component*" OR assessment* ) ) OR TITLE-ABS-KEY ( ( "knowledge component*" OR "skill model*" OR "cognitive model discover*" OR "knowledge concept tagging" OR "skill tagging" OR "knowledge tagging" ) AND ( discover* OR refin* OR generat* OR tagging OR "data-driven" OR "learning factors analysis" OR automat* OR extract* ) ) ) AND PUBYEAR > 2020 AND PUBYEAR < 2027
+\end{lstlisting}
 
-\begin{tabular}{l}
-(  ("Q-matri*" OR "Q matri*")  AND  ("cognitive diagnos*" OR "diagnostic classification*"   OR "diagnostic assessment*" OR DINA   OR attribute* OR skill* OR "knowledge component*" OR assessment*))OR(  ("knowledge component*" OR "skill model*"   OR "cognitive model discover*"   OR "knowledge concept tagging"   OR "skill tagging" OR "knowledge tagging")  AND  (discover* OR refin* OR generat*   OR tagging OR "data driven"   OR "learning factors analysis"   OR automat* OR extract*))OR(  ("cognitive diagnos*" OR "diagnostic classification*")  AND  (clinical OR psychiatr* OR psychopatholog*   OR "mental health" OR symptom* OR DSM OR personality)) \\
+\subsubsection{Web of Science Core Collection (Advanced search, pasted into the Query Preview box)}
 
-\end{tabular}
+\begin{lstlisting}[style=searchquery]
+TS=((("Q matri*") AND ("cognitive diagnos*" OR "diagnostic classification" OR "diagnostic assessment" OR DINA OR attribute* OR skill* OR "knowledge component*" OR assessment*)) OR (("knowledge component*" OR "skill model*" OR "cognitive model discover*" OR "knowledge concept tagging" OR "skill tagging" OR "knowledge tagging") AND (discover* OR refin* OR generat* OR tagging OR "data driven" OR "learning factors analysis" OR automat* OR extract*)))
+\end{lstlisting}
 
-\end{table}
+\subsubsection{APA PsycInfo (EBSCO advanced search).}
+
+\begin{lstlisting}[style=searchquery]
+( TI ( "cognitive diagnos*" OR "diagnostic classification model*" ) OR AB ( "cognitive diagnos*" OR "diagnostic classification model*" ) ) AND ( TI ( clinical OR psychiatr* OR psychopatholog* OR "mental health" OR symptom* OR DSM OR personality ) OR AB ( clinical OR psychiatr* OR psychopatholog* OR "mental health" OR symptom* OR DSM OR personality ) )
+\end{lstlisting}
+
+\subsubsection{ACM Digital Library (Advanced search, with the field set to Abstract).}
+
+\begin{lstlisting}[style=searchquery]
+"Q-matrix" OR "Q matrix"
+\end{lstlisting}
+
+and a second search:
+
+\begin{lstlisting}[style=searchquery]
+("knowledge component" OR "knowledge components" OR "skill tagging" OR "knowledge concept tagging") AND (generation OR discovery OR refinement OR tagging OR automated)
+\end{lstlisting}
+
+\subsubsection{IEEE Xplore (Advanced search-Command Search)}
+
+\begin{lstlisting}[style=searchquery]
+(("Q-matrix" OR "Q matrix") AND ("cognitive diagnosis" OR "cognitive diagnostic" OR "diagnostic classification" OR DINA)) OR (("knowledge component" OR "knowledge components" OR "skill tagging" OR "knowledge concept tagging") AND (generation OR discovery OR refinement OR tagging OR automated))
+\end{lstlisting}
+
+\subsection{Explanation of Search Strings}
+
+\begin{lstlisting}[style=searchquery]
+(  ("Q-matri*" OR "Q matri*")  AND  ("cognitive diagnos*" OR "diagnostic classification*"   OR "diagnostic assessment*" OR DINA   OR attribute* OR skill* OR "knowledge component*" OR assessment*))OR(  ("knowledge component*" OR "skill model*"   OR "cognitive model discover*"   OR "knowledge concept tagging"   OR "skill tagging" OR "knowledge tagging")  AND  (discover* OR refin* OR generat*   OR tagging OR "data driven"   OR "learning factors analysis"   OR automat* OR extract*))OR(  ("cognitive diagnos*" OR "diagnostic classification*")  AND  (clinical OR psychiatr* OR psychopatholog*   OR "mental health" OR symptom* OR DSM OR personality))
+\end{lstlisting}
 
 The search string will follow three complementary search paths. The first targets studies explicitly using Q-matrix terminology together with terms associated with cognitive diagnosis and assessment. The second captures related research that may describe the generation or refinement of skill and knowledge-component mappings without explicitly referring to them as Q-matrices. The third targets cognitive diagnostic research in psychological and clinical settings to support the cross-domain scope of the review. Within each group, OR combines synonymous or related terms, while AND requires records to contain concepts from both groups. Quotation marks are used for multi-word phrases, and the wildcard * captures multiple endings of a term, such as refin* for refine, refinement, and refining. The exact syntax will be adapted to each database's search functionality while preserving these conceptual groups. Some terms will be more relevant for some databases than others, and we might also expand on these terms.
 
-\subsubsection{\textbf{Inclusion and Exclusion}}
+\subsection{Inclusion and Exclusion Criteria with Explanation}
 
 \textbf{Exclusion Criteria.} Studies will be included if they were published in peer-reviewed English conferences or journals between 2021 and 2026 and address the generation, estimation, validation, correction, or refinement of a Q-matrix for mapping of certain skills or attributes. In addition, the studies need to provide sufficient information to contribute to at least one of our predefined research questions.
 
-\textbf{Inclusion Criteria.} Studies will be excluded, if they use the term Q-matrix in an unrelated context, were published before our predefined review period, have not yet received successful peer review, or are not available in English. We will also aim to exclude any duplicates of the same publications or any studies that do not contribute to our research question in a meaningful way. Lastly, we will not include any publications that exclusively take advantage of pre-existing Q-Matrices and do not contribute totheirs refinement or validation in any way, as our review is specifically about the generation of Q-Matrices.
+\textbf{Inclusion Criteria.} Studies will be excluded, if they use the term Q-matrix in an unrelated context, were published before our predefined review period, have not yet received successful peer review, or are not available in English. We will also aim to exclude any duplicates of the same publications or any studies that do not contribute to our research question in a meaningful way. Lastly, we will not include any publications that exclusively take advantage of pre-existing Q-Matrices and do not contribute to their refinement or validation in any way, as our review is specifically about the generation of Q-Matrices.
 
-We will aim to deploy these criteria both for initiaabstract-levelel screening as well as further paper-level screening.
+We will aim to deploy these criteria both for initial abstract-level screening as well as further paper-level screening.
 
-\textbf{Information to be Extracted }
+\subsection{What Information Will Be Extracted to Answer the RQs}
 
 For each paper included in the final review, we will extract the information needed to answer the three research questions. Basic information such as publication year and application domain will be recorded first. Each study will then be classified according to the Q-matrix task it addresses, such as generation, validation, or refinement.
 
@@ -345,15 +178,23 @@ To answer RQ3, we will extract the problem that each method is intended to addre
 
 If a study does not report a particular item of information, that variable will be recorded as not reported rather than inferred by the reviewers.
 
-\textbf{Current Estimate for amount of work}
+\subsection{Current Estimate for Amount of Work}
 
 Using the current search strings, the 2021-2026 publication range, and the databases included in the review, our initial searches produced 963 records. These 963 records will be subjected to screening and filtering rather than the final number of records expected to receive full review and data extraction. The majority will be screened using titles and abstracts according to the inclusion and exclusion criteria. Records that are potentially relevant will be subjected to full-text screening and only studies that satisfy the final eligibility criteria will be included in the data-extraction stage.
 
-With five members in the group, this corresponds to approximately 193 title and abstract reviews per member if divided evenly. This number should get smaller after initial screening. 
+With five members in the group, this corresponds to approximately 193 title and abstract reviews per member if divided evenly. This number should get smaller after initial screening.
 
- 
+\begin{thebibliography}{3}
+
+\bibitem{qin2026}
+Qin, Haijiang, et al. “From Theory to Practice: A Comprehensive Toolkit for Q-Matrix Validation in Cognitive Diagnosis.” Behavior Research Methods, vol. 58, no. 6, May 2026, p. 151. Springer Link, \href{https://doi.org/10.3758/s13428-026-02991-5}{https://doi.org/10.3758/s13428-026-02991-5}.
+
+\bibitem{coates2026}
+Coates, Adam. “A Systematic Review of the Implications of Diagnostic Classification Modeling for Cognitive Models of Mathematics.” Review of Educational Research, Sept. 2026, p. 00346543261480692. DOI.org (Crossref), \href{https://doi.org/10.3102/00346543261480692}{https://doi.org/10.3102/00346543261480692}.
+
+\bibitem{wang2026}
+Wang, Chun, et al. “Review of Cognitive Diagnostic Models ( CDMs ): Recent Methodological Advancements for Addressing Practical Challenges.” British Journal of Mathematical and Statistical Psychology, July 2026, p. bmsp.70066. DOI.org (Crossref), \href{https://doi.org/10.1111/bmsp.70066}{https://doi.org/10.1111/bmsp.70066}.
+
+\end{thebibliography}
 
 \end{document}
-\endinput
-%%
-%% End of file `sigconf.tex'.
