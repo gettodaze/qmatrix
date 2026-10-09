@@ -9,15 +9,17 @@ Unavailable bibliographic fields remain blank; no external lookup is performed.
 from __future__ import annotations
 
 import argparse
-import csv
 import re
 from collections import defaultdict
-from dataclasses import asdict, dataclass, fields
+from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Mapping
 
+import pandas as pd
 
+
+# Parse the source's list fields and represent each input row.
 def split_list(value: str) -> tuple[str, ...]:
     """Parse the input's semicolon-separated fields."""
     return tuple(part.strip() for part in value.split(";") if part.strip())
@@ -83,6 +85,7 @@ class SourceRecord:
         return min(self.databases, key=lambda name: (name.casefold(), name))
 
 
+# Convert source rows to the example's output columns.
 @dataclass(frozen=True)
 class OutputRecord:
     """Column names and order match excel-example.csv."""
@@ -134,51 +137,36 @@ class OutputRecord:
 
 
 def read_records(path: Path) -> list[SourceRecord]:
-    with path.open(newline="", encoding="utf-8-sig") as stream:
-        reader = csv.DictReader(stream)
-        records = []
-        for row in reader:
-            try:
-                if None in row or any(value is None for value in row.values()):
-                    raise ValueError("row has a different number of fields than the header")
-                records.append(SourceRecord.from_csv_row(row))
-            except (KeyError, ValueError) as error:
-                raise ValueError(f"{path}, near line {reader.line_num}: {error}") from error
-        return records
+    # Read strings and preserve empty fields instead of converting them to NaN.
+    frame = pd.read_csv(path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
+    return [SourceRecord.from_csv_row(row) for row in frame.to_dict(orient="records")]
 
 
 def write_records(records: list[SourceRecord], output_root: Path) -> Path:
+    # Assign each record to its alphabetically first database and convert it.
     grouped: dict[str, list[OutputRecord]] = defaultdict(list)
     for record in records:
         grouped[record.database].append(OutputRecord.from_record(record))
 
-    # Keep database names readable, replacing characters unsafe in filenames.
-    filenames = {
-        database: re.sub(r'[<>:"/\\|?*\x00-\x1f]', "_", database).rstrip(". ") + ".csv"
-        for database in grouped
-    }
-    if len({name.casefold() for name in filenames.values()}) != len(filenames):
-        raise ValueError("Database names produce colliding output filenames")
-
-    # %H%S follows the requested hhss format: hour and second, without minutes.
+    # Create the requested timestamp folder (hhss means hour and second).
     directory = output_root / datetime.now().strftime("%Y%m%d_%H%S")
     directory.mkdir(parents=True, exist_ok=False)
-    columns = [field.name for field in fields(OutputRecord)]
-    for database in sorted(grouped, key=str.casefold):
-        with (directory / filenames[database]).open(
-            "w", newline="", encoding="utf-8"
-        ) as stream:
-            writer = csv.DictWriter(stream, fieldnames=columns)
-            writer.writeheader()
-            writer.writerows(asdict(record) for record in grouped[database])
+
+    # Write one CSV per database, preserving the output dataclass's column order.
+    for database, rows in grouped.items():
+        frame = pd.DataFrame([asdict(row) for row in rows])
+        frame.to_csv(directory / f"{database}.csv", index=False, encoding="utf-8")
     return directory
 
 
 def main() -> None:
+    # Parse command-line paths.
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", nargs="?", type=Path, default=Path("input.csv"))
     parser.add_argument("--output", type=Path, default=Path("output"))
     args = parser.parse_args()
+
+    # Read, convert, and write the records.
     records = read_records(args.input)
     directory = write_records(records, args.output)
     print(f"Wrote {len(records)} records to {directory}")
