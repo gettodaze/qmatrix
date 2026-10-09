@@ -14,3 +14,6 @@ Optional paths:
 ```bash
 uv run --no-project --with pandas python parse_records.py other.csv --output outputs
 ```
+
+## AI Usage
+Codex was used to create this README.md and parse_records.py.
